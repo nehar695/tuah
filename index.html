@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpitTuah</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/xXLxXNP/spit-Photoroom.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .main-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-size: 5em;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            margin-top: 20px;
+        }
+
+        /* Coins falling animation */
+        .coin-container img {
+            position: absolute;
+            animation: fall 5s infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <img src="https://i.ibb.co/xXLxXNP/spit-Photoroom.jpg" alt="SpitTuah" class="main-image">
+        <h1>SpitTuah</h1>
+    </div>
+
+    <div class="coin-container">
+        <!-- Coins will be randomly positioned using JavaScript -->
+    </div>
+
+    <script>
+        // Function to generate random falling coins
+        const coinContainer = document.querySelector('.coin-container');
+
+        function createCoin() {
+            const coin = document.createElement('img');
+            coin.src = 'https://i.ibb.co/zsvt6qC/tuah-coins.png';
+            coin.style.left = `${Math.random() * window.innerWidth}px`;
+            coin.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random duration between 2-5 seconds
+            coin.style.animationDelay = `${Math.random() * 5}s`; // Random delay before falling
+            coinContainer.appendChild(coin);
+        }
+
+        // Create 50 coins on page load
+        for (let i = 0; i < 50; i++) {
+            createCoin();
+        }
+    </script>
+</body>
+</html>
