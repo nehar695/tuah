@@ -42,6 +42,14 @@
             margin-top: 20px;
         }
 
+        /* New section for CA: */
+        .ca-section {
+            font-size: 2em;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            margin-top: 30px;
+        }
+
         /* Coins falling animation */
         .coin-container img {
             position: absolute;
@@ -66,6 +74,11 @@
         <h1>SpitTuah</h1>
     </div>
 
+    <!-- New CA section -->
+    <div class="ca-section">
+        CA:
+    </div>
+
     <div class="coin-container">
         <!-- Coins will be randomly positioned using JavaScript -->
     </div>
@@ -76,7 +89,7 @@
 
         function createCoin() {
             const coin = document.createElement('img');
-            coin.src = 'https://i.ibb.co/zsvt6qC/tuah-coins.png';
+            coin.src = 'https://i.ibb.co/0Mg33dq/tuah-coins-Photoroom.png'; // New coin image URL
             coin.style.left = `${Math.random() * window.innerWidth}px`;
             coin.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random duration between 2-5 seconds
             coin.style.animationDelay = `${Math.random() * 5}s`; // Random delay before falling
